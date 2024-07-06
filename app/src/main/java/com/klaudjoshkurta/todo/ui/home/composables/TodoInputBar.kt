@@ -35,16 +35,17 @@ fun TodoInputBar(
 
     Card(
         modifier = modifier
+            .padding(16.dp)
             .height(60.dp)
             .fillMaxWidth(),
         shape = RoundedCornerShape(200.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
         colors = CardDefaults.cardColors(
             containerColor = Color.White
         ),
         border = CardDefaults.outlinedCardBorder(
             enabled = true
-        )
+        ),
     ) {
         Row(
             modifier = Modifier

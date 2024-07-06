@@ -4,7 +4,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Scaffold
@@ -24,42 +27,41 @@ import kotlinx.coroutines.flow.flowOf
 
 @Composable
 fun HomeScreen() {
-    Scaffold { innerPadding ->
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-        ) {
-            TodoList(
-                todoItemsFlow = flowOf(
-                    listOf(
-                        TodoItem(title = "Sample todo item", completed = false),
-                        TodoItem(title = "Sample todo item", completed = true),
-                        TodoItem(title = "Sample todo item", completed = false),
-                        TodoItem(title = "Sample todo item", completed = true),
-                        TodoItem(title = "Sample todo item", completed = false),
-                        TodoItem(title = "Sample todo item", completed = false),
-                        TodoItem(title = "Sample todo item", completed = true),
-                        TodoItem(title = "Sample todo item", completed = true),
-                        TodoItem(title = "Sample todo item", completed = true),
-                        TodoItem(title = "Sample todo item", completed = true),
-                        TodoItem(title = "Sample todo item", completed = true),
-                        TodoItem(title = "Sample todo item", completed = true),
-                        TodoItem(title = "Sample todo item", completed = true),
-                        TodoItem(title = "Sample todo item", completed = true),
-                        TodoItem(title = "Sample todo item", completed = true),
-                        TodoItem(title = "Sample todo item", completed = true),
-                    )
-                ),
-                onItemClicked = {},
-                onItemDeleted = {},
-                overlappingElementsHeight = 60.dp
-            )
-            TodoInputBar(
-                modifier = Modifier.align(Alignment.BottomStart),
-                onTodoAdded = {}
-            )
-        }
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .statusBarsPadding()
+            .navigationBarsPadding()
+    ) {
+        TodoList(
+            todoItemsFlow = flowOf(
+                listOf(
+                    TodoItem(title = "Sample todo item", completed = false),
+                    TodoItem(title = "Sample todo item", completed = true),
+                    TodoItem(title = "Sample todo item", completed = false),
+                    TodoItem(title = "Sample todo item", completed = true),
+                    TodoItem(title = "Sample todo item", completed = false),
+                    TodoItem(title = "Sample todo item", completed = false),
+                    TodoItem(title = "Sample todo item", completed = true),
+                    TodoItem(title = "Sample todo item", completed = true),
+                    TodoItem(title = "Sample todo item", completed = true),
+                    TodoItem(title = "Sample todo item", completed = true),
+                    TodoItem(title = "Sample todo item", completed = true),
+                    TodoItem(title = "Sample todo item", completed = true),
+                    TodoItem(title = "Sample todo item", completed = true),
+                    TodoItem(title = "Sample todo item", completed = true),
+                    TodoItem(title = "Sample todo item", completed = true),
+                    TodoItem(title = "Sample todo item", completed = true),
+                )
+            ),
+            onItemClicked = {},
+            onItemDeleted = {},
+            overlappingElementsHeight = 92.dp
+        )
+        TodoInputBar(
+            modifier = Modifier.align(Alignment.BottomStart).imePadding(),
+            onTodoAdded = {}
+        )
     }
 }
 
