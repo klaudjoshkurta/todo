@@ -29,7 +29,7 @@ import com.klaudjoshkurta.todo.ui.theme.TodoTheme
 
 @Composable
 fun TodoItem(
-    todoItem: TodoItem = TodoItem(title = "Sample todo item"),
+    todoItem: TodoItem,
     onItemClicked: (TodoItem) -> Unit = {},
     onItemDeleted: (TodoItem) -> Unit = {}
 ) {
