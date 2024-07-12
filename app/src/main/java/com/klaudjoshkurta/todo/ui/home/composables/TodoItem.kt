@@ -74,7 +74,6 @@ fun TodoItem(
                 )
             }
         }
-        HorizontalDivider()
     }
 }
 

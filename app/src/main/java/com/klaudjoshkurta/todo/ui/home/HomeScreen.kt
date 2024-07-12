@@ -1,6 +1,7 @@
 package com.klaudjoshkurta.todo.ui.home
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -15,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -27,41 +29,47 @@ import kotlinx.coroutines.flow.flowOf
 
 @Composable
 fun HomeScreen() {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .statusBarsPadding()
-            .navigationBarsPadding()
+    Scaffold(
+        bottomBar = {
+            TodoInputBar(
+                modifier = Modifier
+                    .imePadding(),
+                onTodoAdded = {}
+            )
+        },
+        containerColor = Color.White
     ) {
-        TodoList(
-            todoItemsFlow = flowOf(
-                listOf(
-                    TodoItem(title = "Sample todo item", completed = false),
-                    TodoItem(title = "Sample todo item", completed = true),
-                    TodoItem(title = "Sample todo item", completed = false),
-                    TodoItem(title = "Sample todo item", completed = true),
-                    TodoItem(title = "Sample todo item", completed = false),
-                    TodoItem(title = "Sample todo item", completed = false),
-                    TodoItem(title = "Sample todo item", completed = true),
-                    TodoItem(title = "Sample todo item", completed = true),
-                    TodoItem(title = "Sample todo item", completed = true),
-                    TodoItem(title = "Sample todo item", completed = true),
-                    TodoItem(title = "Sample todo item", completed = true),
-                    TodoItem(title = "Sample todo item", completed = true),
-                    TodoItem(title = "Sample todo item", completed = true),
-                    TodoItem(title = "Sample todo item", completed = true),
-                    TodoItem(title = "Sample todo item", completed = true),
-                    TodoItem(title = "Sample todo item", completed = true),
-                )
-            ),
-            onItemClicked = {},
-            onItemDeleted = {},
-            overlappingElementsHeight = 92.dp
-        )
-        TodoInputBar(
-            modifier = Modifier.align(Alignment.BottomStart).imePadding(),
-            onTodoAdded = {}
-        )
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(it)
+        ) {
+            TodoList(
+                todoItemsFlow = flowOf(
+                    listOf(
+                        TodoItem(title = "Sample todo item", completed = false),
+                        TodoItem(title = "Sample todo item", completed = true),
+                        TodoItem(title = "Sample todo item", completed = false),
+                        TodoItem(title = "Sample todo item", completed = true),
+                        TodoItem(title = "Sample todo item", completed = false),
+                        TodoItem(title = "Sample todo item", completed = false),
+                        TodoItem(title = "Sample todo item", completed = true),
+                        TodoItem(title = "Sample todo item", completed = true),
+                        TodoItem(title = "Sample todo item", completed = true),
+                        TodoItem(title = "Sample todo item", completed = true),
+                        TodoItem(title = "Sample todo item", completed = true),
+                        TodoItem(title = "Sample todo item", completed = true),
+                        TodoItem(title = "Sample todo item", completed = true),
+                        TodoItem(title = "Sample todo item", completed = true),
+                        TodoItem(title = "Sample todo item", completed = true),
+                        TodoItem(title = "Sample todo item", completed = true),
+                    )
+                ),
+                onItemClicked = {},
+                onItemDeleted = {},
+                overlappingElementsHeight = 92.dp
+            )
+        }
     }
 }
 
