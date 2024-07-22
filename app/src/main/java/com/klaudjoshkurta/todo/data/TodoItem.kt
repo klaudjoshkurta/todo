@@ -1,9 +1,11 @@
 package com.klaudjoshkurta.todo.data
 
-import java.util.UUID
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
+@Entity
 data class TodoItem(
-    val id: UUID = UUID.randomUUID(),
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val title: String,
     val isDone: Boolean = false
 )
