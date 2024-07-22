@@ -1,6 +1,4 @@
 <resources>
     <string name="app_name">Todo</string>
-    <string name="input_bar_hint">Write you todo</string>
-    <string name="add_button_cd">Add todo</string>
-    <string name="delete_button_cd">Delete todo</string>
+    <string name="todo_input_bar_hint">Write your todo</string>
 </resources>
