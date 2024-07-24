@@ -12,7 +12,14 @@ import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme()
 
-private val LightColorScheme = lightColorScheme()
+private val LightColorScheme = lightColorScheme(
+    primary = Black,
+    onPrimary = White,
+    secondary = White,
+    onSecondary = Black,
+    background = LightGray,
+    onBackground = Black
+)
 
 @Composable
 fun TodoTheme(
