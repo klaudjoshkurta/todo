@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
@@ -48,7 +49,7 @@ fun HomeScreen() {
                 shape = RoundedCornerShape(200.dp),
                 containerColor = Color.Black,
                 contentColor = Color.White,
-                modifier = Modifier.padding(bottom = 60.dp)
+                modifier = Modifier.padding(bottom = 60.dp).size(70.dp)
             ) {
                 Icon(imageVector = Icons.Rounded.Add, contentDescription = null)
             }
