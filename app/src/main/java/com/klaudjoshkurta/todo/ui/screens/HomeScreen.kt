@@ -34,14 +34,7 @@ import java.time.LocalTime
 @Composable
 fun HomeScreen() {
     Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.background
-                )
-            )
-        },
+        topBar = { HomeTopBar() },
         containerColor = MaterialTheme.colorScheme.background
     ) { innerPadding ->
         Column(
@@ -51,16 +44,28 @@ fun HomeScreen() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             /** Greeting message */
-            GreetingMessage(name = "Klaudjo")
+            GreetingMessage(
+                modifier = Modifier.fillMaxWidth(),
+            )
         }
     }
+}
+
+@Composable
+fun HomeTopBar() {
+    TopAppBar(
+        title = { },
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = MaterialTheme.colorScheme.background
+        )
+    )
 }
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 private fun GreetingMessage(
     modifier: Modifier = Modifier,
-    name: String
+    name: String = "Klaudjo"
 ) {
     /** Get current time */
     var currentTime by remember { mutableStateOf(LocalTime.now()) }
@@ -74,7 +79,7 @@ private fun GreetingMessage(
     }
 
     Column(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
