@@ -41,6 +41,7 @@ val Typography = Typography(
     ),
     bodySmall = TextStyle(
         fontFamily = geistMonoFamily,
+        fontSize = 14.sp
     ),
     labelLarge = TextStyle(
         fontFamily = geistMonoFamily,
