@@ -11,9 +11,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FabPosition
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -28,9 +33,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.klaudjoshkurta.todo.R
 import com.klaudjoshkurta.todo.data.Todo
 import com.klaudjoshkurta.todo.data.todoList
 import com.klaudjoshkurta.todo.ui.components.TodoCard
@@ -43,11 +50,30 @@ import java.time.LocalTime
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    navigateToEntryScreen: () -> Unit = {}
+) {
     Scaffold(
         topBar = { HomeTopBar() },
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = navigateToEntryScreen,
+                containerColor = MaterialTheme.colorScheme.primary,
+                contentColor = MaterialTheme.colorScheme.onPrimary,
+                shape = RoundedCornerShape(200.dp),
+                modifier = Modifier.size(70.dp),
+            ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.plus),
+                    contentDescription = null,
+                    modifier = Modifier.size(24.dp)
+                )
+            }
+        },
+        floatingActionButtonPosition = FabPosition.Center,
         containerColor = MaterialTheme.colorScheme.background
     ) { innerPadding ->
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -59,6 +85,7 @@ fun HomeScreen() {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 60.dp),
+                todosCount = 3
             )
             /** Todos list */
             TodoItems(
@@ -87,7 +114,8 @@ fun HomeTopBar() {
 @Composable
 private fun GreetingMessage(
     modifier: Modifier = Modifier,
-    name: String = "Klaudjo"
+    name: String = "Klaudjo",
+    todosCount: Int = 3
 ) {
     /** Get current time */
     var currentTime by remember { mutableStateOf(LocalTime.now()) }
@@ -110,7 +138,7 @@ private fun GreetingMessage(
             style = MaterialTheme.typography.titleLarge
         )
         Text(
-            text = "You have 3 todos left for today.",
+            text = "You have $todosCount todos left for today.",
             style = MaterialTheme.typography.bodySmall
         )
     }
