@@ -37,6 +37,7 @@ val Typography = Typography(
     ),
     bodyMedium = TextStyle(
         fontFamily = geistMonoFamily,
+        fontSize = 16.sp
     ),
     bodySmall = TextStyle(
         fontFamily = geistMonoFamily,
