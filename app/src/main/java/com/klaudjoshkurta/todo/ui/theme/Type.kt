@@ -22,24 +22,6 @@ val fontFamily = FontFamily(
 
 // Set of Material typography styles to start with
 val Typography = Typography(
-    displayLarge = TextStyle(
-        fontFamily = fontFamily,
-    ),
-    displayMedium = TextStyle(
-        fontFamily = fontFamily,
-    ),
-    displaySmall = TextStyle(
-        fontFamily = fontFamily,
-    ),
-    headlineLarge = TextStyle(
-        fontFamily = fontFamily,
-    ),
-    headlineMedium = TextStyle(
-        fontFamily = fontFamily,
-    ),
-    headlineSmall = TextStyle(
-        fontFamily = fontFamily,
-    ),
     titleLarge = TextStyle(
         fontFamily = fontFamily,
         fontSize = 22.sp

@@ -62,6 +62,8 @@ dependencies {
     implementation(libs.androidx.material3)
     // Google fonts
     implementation(libs.androidx.ui.text.google.fonts)
+    // Navigation compose
+    implementation(libs.androidx.navigation.compose)
     // Room
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
