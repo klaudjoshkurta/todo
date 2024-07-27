@@ -100,6 +100,7 @@ fun HomeScreen(
     }
 }
 
+// region Composable functions
 @Composable
 fun HomeTopBar() {
     TopAppBar(
@@ -173,7 +174,9 @@ fun TodoItems(
         }
     }
 }
+// endregion
 
+// region Previews
 @RequiresApi(Build.VERSION_CODES.O)
 @Preview(showSystemUi = true)
 @Composable
@@ -182,3 +185,4 @@ fun HomeScreenPreview() {
         HomeScreen()
     }
 }
+// endregion
